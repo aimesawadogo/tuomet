@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soudure - TUOMET Global Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-dark {
+            background-color: #f5f5f5;
+        }
+
+        /* Header et Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary-color);
+        }
+
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
+        /* Page Soudure */
+        .soudure-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('sdimg1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+        }
+
+        .soudure-logo {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+.soudure-hero h1 {
+    font-size: 1.8rem; /* Taille existante */
+    margin-bottom: 1.5rem;
+    color: #ffffff; /* Nouvelle couleur - blanc */
+    /* ou une autre couleur de votre choix */
+}
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .soudure-techniques {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .technique-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .technique-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .technique-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* About Content */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            width: 40px;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .soudure-hero {
+                padding: 150px 0 80px;
+                margin-top: 70px;
+            }
+            
+            .soudure-logo {
+                height: 80px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .technique-card {
+                padding: 20px 15px;
+            }
+            
+            .technique-icon {
+                font-size: 2.5rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo {
+                height: 40px;
+            }
+            
+            .soudure-hero {
+                padding: 120px 0 60px;
+                margin-top: 60px;
+            }
+            
+            .soudure-logo {
+                height: 60px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .process-step {
+                min-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .soudure-techniques {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                width: 98%;
+                padding: 0 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo {
+                height: 35px;
+                margin-right: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .soudure-hero {
+                padding: 100px 0 50px;
+            }
+            
+            .technique-card {
+                padding: 15px 10px;
+            }
+            
+            .technique-icon {
+                font-size: 2rem;
+            }
+        }
+
+
+/* Portfolio Grid pour Soudure */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.portfolio-overlay p {
+    color: var(--secondary-color);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/+22654326063" class="whatsapp-float" id="whatsappFloat" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="logo-soud.jpg" alt="Logo TGS" class="logo">
+                    <div class="logo-text">
+                        <h1>TUOMET <span>Global Service</span></h1>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="soudure.html">Soudure</a></li>
+                    <li><a href="#realisations-soudure">Réalisations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section Soudure -->
+    <section class="soudure-hero">
+        <div class="container">
+            <img src="sdimg1.jpg" alt="Logo Soudure" class="soudure-logo">
+            <h1>Service de soudure professionnelle</h1>
+            <p>Expertise, précision et qualité pour tous vos projets métalliques</p>
+            <a href="#contact" class="btn">Demander un devis</a>
+        </div>
+    </section>
+
+    <!-- Services Soudure -->
+    <section class="section-light">
+        <div class="container">
+            <h2>Nos services de soudure</h2>
+            <div class="soudure-techniques">
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Réparations métalliques</h3>
+                    <ul>
+                        <li>Portails et grilles</li>
+                        <li>Structures métalliques</li>
+                        <li>Équipements industriels</li>
+                        <li>Meubles et décorations</li>
+                    </ul>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Fabrication sur mesure</h3>
+                    <ul>
+                        <li>Pièces uniques</li>
+                        <li>Structures architecturales</li>
+                        <li>Éléments décoratifs</li>
+                        <li>Prototypes</li>
+                    </ul>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Soudure industrielle</h3>
+                    <ul>
+                        <li>Soudure TIG</li>
+                        <li>Soudure MIG/MAG</li>
+                        <li>Soudure MMA</li>
+                        <li>Soudure par points</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processus -->
+    <section class="section-dark">
+        <div class="container">
+            <h2>Notre processus de travail</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>Évaluation de vos besoins et analyse technique du projet</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Devis</h3>
+                    <p>Établissement d'un devis détaillé et transparent</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Réalisation</h3>
+                    <p>Exécution des travaux avec précision et professionnalisme</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Livraison</h3>
+                    <p>Contrôle qualité et mise en service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Techniques -->
+    <section class="section-light">
+        <div class="container">
+            <h2>Nos techniques de soudure</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Soudure TIG (Tungsten Inert Gas)</h3>
+                    <p>Idéale pour les soudures de précision sur l'acier inoxydable, l'aluminium et autres métaux non ferreux. Nous utilisons cette technique pour les travaux nécessitant une finition parfaite.</p>
+                    
+                    <h3>Soudure MIG/MAG (Metal Inert Gas / Metal Active Gas)</h3>
+                    <p>Parfaite pour les travaux de production et les soudures continues. Rapide et efficace, cette technique est idéale pour les structures métalliques et les pièces de moyenne à forte épaisseur.</p>
+                    
+                    <h3>Soudure MMA (Manual Metal Arc)</h3>
+                    <p>Également connue sous le nom de soudure à l'arc, cette technique polyvalente est parfaite pour les travaux sur chantier et les réparations en extérieur.</p>
+                </div>
+                <div class="about-image">
+                    <img src="presentation.jpg" alt="Techniques de soudure">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matériaux -->
+    <section class="section-dark">
+        <div class="container">
+            <h2>Matériaux Traités</h2>
+            <div class="soudure-techniques">
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h3>Acier</h3>
+                    <ul>
+                        <li>Acier doux</li>
+                        <li>Acier inoxydable</li>
+                        <li>Acier galvanisé</li>
+                        <li>Acier Corten</li>
+                    </ul>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Aluminium</h3>
+                    <ul>
+                        <li>Profilés aluminium</li>
+                        <li>Plaques et tôles</li>
+                        <li>Alliages spéciaux</li>
+                    </ul>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Autres Métaux</h3>
+                    <ul>
+                        <li>Laiton</li>
+                        <li>Cuivre</li>
+                        <li>Bronze</li>
+                        <li>Alliages spéciaux</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Réalisations Soudure -->
+<section id="realisations-soudure" class="section-light">
+    <div class="container">
+        <h2>Nos réalisations en soudure</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="sdimg2.jpg" alt="Portail métallique" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Portail Métallique</h3>
+                    <p>Fabrication et installation sur mesure</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="sdimg3.jpg" alt="Grille de protection" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Grille de Protection</h3>
+                    <p>Soudure précise et finition soignée</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="sdimg4.jpg" alt="Structure industrielle" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Structure Industrielle</h3>
+                    <p>Charpente métallique robuste</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="sdimg5.jpg" alt="Escalier métallique" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Escalier Métallique</h3>
+                    <p>Design et fonctionnalité</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="sdimg1.jpg" alt="Meuble métallique" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Meuble Métallique</h3>
+                    <p>Création sur mesure</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="sdimg6.jpeg" alt="Réparation équipement" loading="lazy">
+                <div class="portfolio-overlay">
+                    <h3>Réparation Équipement</h3>
+                    <p>Maintenance industrielle</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-light">
+        <div class="container">
+            <h2>Demander un Devis Soudure</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p id="contact-address">Chargement...</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Téléphone / WhatsApp</h3>
+                            <p id="contact-phone">Chargement...</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p id="contact-email">Chargement...</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <h3>Facebook</h3>
+                            <p id="contact-facebook">Chargement...</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>Contact Direct</h3>
+                            <p>Cliquez sur le bouton vert pour nous contacter directement sur WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Type de projet</label>
+                            <select id="project" class="form-control" required>
+                                <option value="">Sélectionnez un type</option>
+                                <option value="reparation">Réparation</option>
+                                <option value="fabrication">Fabrication sur mesure</option>
+                                <option value="industriel">Soudure industrielle</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Description du projet</label>
+                            <textarea id="message" class="form-control" required placeholder="Décrivez votre projet de soudure en détail..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Demander un devis via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TUOMET Global Service</h3>
+                    <p>Votre partenaire de confiance pour tous vos besoins en électricité et soudure à Bobo-Dioulasso et dans la région.</p>
+                    <div class="social-links">
+                        <a href="#" id="facebook-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="whatsapp-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" id="email-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#a-propos">À propos</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="soudure.html">Soudure</a></li>
+                        <li><a href="#realisations-soudure">Réalisations soudure</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services Soudure</h3>
+                    <ul class="footer-links">
+                        <li><a href="soudure.html">Réparations métalliques</a></li>
+                        <li><a href="soudure.html">Fabrication sur mesure</a></li>
+                        <li><a href="soudure.html">Soudure industrielle</a></li>
+                        <li><a href="soudure.html">Soudure TIG</a></li>
+                        <li><a href="soudure.html">Soudure MIG/MAG</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Chargement...</span></li>
+                        <li><i class="fas fa-phone-alt"></i> <span id="footer-phone">Chargement...</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="footer-email">Chargement...</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> TUOMET Global Service. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Configuration Google Sheets - MÊME ID que la page principale
+    const SHEET_ID = '1FijFBe8Z3oYEi8RO-8tTqMTsBB6lmLzmBgrQyTbD6qc';
+    const SHEET_NAME = 'Feuille1';
+
+    // Fonction pour récupérer les données du Google Sheet
+    async function fetchContactData() {
+        try {
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}`;
+            const response = await fetch(url);
+            const csvData = await response.text();
+            
+            console.log('CSV brut:', csvData); // Pour debug
+            
+            const rows = csvData.split('\n');
+            const contactData = {};
+            
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i].trim();
+                if (!row) continue; // Ignorer les lignes vides
+                
+                const cells = row.split(',').map(cell => 
+                    cell.replace(/^"|"$/g, '').trim()
+                );
+                
+                // Votre structure: "phone_main +226 54 32 60 63 Numéro principal"
+                if (cells.length > 0 && cells[0]) {
+                    const firstCell = cells[0];
+                    
+                    if (firstCell.includes('phone_main')) {
+                        const match = firstCell.match(/phone_main\s+([\+\d\s]+)/);
+                        if (match && match[1]) {
+                            contactData.phone_main = match[1].trim();
+                        }
+                    }
+                    else if (firstCell.includes('phone_whatsapp')) {
+                        const match = firstCell.match(/phone_whatsapp\s+([\+\d\s]+)/);
+                        if (match && match[1]) {
+                            contactData.phone_whatsapp = match[1].trim();
+                        }
+                    }
+                    else if (firstCell.includes('email')) {
+                        const match = firstCell.match(/email\s+([^\s]+@[^\s]+)/);
+                        if (match && match[1]) {
+                            contactData.email = match[1].trim();
+                        }
+                    }
+                    else if (firstCell.includes('address')) {
+                        const address = firstCell.replace('address', '').trim();
+                        contactData.address = address;
+                    }
+                    else if (firstCell.includes('facebook')) {
+                        const facebook = firstCell.replace('facebook', '').trim();
+                        contactData.facebook = facebook;
+                    }
+                }
+            }
+            
+            console.log('Données extraites:', contactData);
+            return contactData;
+            
+        } catch (error) {
+            console.error('Erreur lors du chargement des données:', error);
+            // Valeurs par défaut
+            return {
+                phone_main: '+226 54 32 60 63',
+                phone_whatsapp: '+226 54 32 60 63',
+                email: 'barrocherif381@gmail.com',
+                address: 'Bobo-Dioulasso, Burkina Faso',
+                facebook: '@TUOMETGlobalService'
+            };
+        }
+    }
+
+    // Fonction pour mettre à jour l'interface
+function updateUI(contactData) {
+    console.log('Mise à jour de l\'interface avec:', contactData);
+    
+    // Mettre à jour les éléments de contact
+    document.getElementById('contact-phone').textContent = contactData.phone_main || 'Non disponible';
+    document.getElementById('contact-email').textContent = contactData.email || 'Non disponible';
+    document.getElementById('contact-address').textContent = contactData.address || 'Non disponible';
+    document.getElementById('contact-facebook').textContent = contactData.facebook || 'Non disponible';
+
+    // Mettre à jour le footer
+    document.getElementById('footer-phone').textContent = contactData.phone_main || 'Non disponible';
+    document.getElementById('footer-email').textContent = contactData.email || 'Non disponible';
+    document.getElementById('footer-address').textContent = contactData.address || 'Non disponible';
+
+    // ✅ CORRECTION CRITIQUE : Mettre à jour l'icône WhatsApp flottante
+    const whatsappNumber = (contactData.phone_whatsapp || contactData.phone_main || '+22654326063').replace(/\s/g, '');
+    console.log('Numéro WhatsApp:', whatsappNumber);
+    
+    // Message par défaut pour WhatsApp
+    const defaultMessage = "Bonjour TUOMET Global Service, je suis intéressé par vos services.";
+    
+    // Mettre à jour l'icône flottante - FORCER la mise à jour
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    const newHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+    whatsappFloat.href = newHref;
+    whatsappFloat.setAttribute('href', newHref); // Double assurance
+    
+    console.log('WhatsApp Float href mis à jour:', whatsappFloat.href);
+    
+    // Mettre à jour les autres liens
+    const whatsappLink = document.getElementById('whatsapp-link');
+    if (whatsappLink) {
+        whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+    }
+    
+    if (contactData.facebook) {
+        const facebookLink = document.getElementById('facebook-link');
+        if (facebookLink) {
+            facebookLink.href = `https://facebook.com/${contactData.facebook}`;
+        }
+    }
+}
+
+
+// Fonction de secours pour WhatsApp
+function setupWhatsAppFallback() {
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    
+    // Vérifier périodiquement si le lien est valide
+    setInterval(() => {
+        if (whatsappFloat.href === '#' || whatsappFloat.href.includes('#')) {
+            // Recharger les données
+            fetchContactData().then(contactData => {
+                updateUI(contactData);
+            });
+        }
+    }, 2000); // Vérifier toutes les 2 secondes
+}
+
+
+// Vérification au clic de l'icône WhatsApp
+document.getElementById('whatsappFloat').addEventListener('click', async function(e) {
+    if (this.href === '#' || !this.href.includes('wa.me')) {
+        e.preventDefault();
+        console.log('Rechargement des données WhatsApp...');
+        
+        // Recharger les données immédiatement
+        const contactData = await fetchContactData();
+        updateUI(contactData);
+        
+        // Réessayer le clic après mise à jour
+        if (this.href !== '#' && this.href.includes('wa.me')) {
+            window.open(this.href, '_blank');
+        }
+    }
+});
+
+
+    // Menu mobile toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Form submission vers WhatsApp
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const project = document.getElementById('project').value;
+        const message = document.getElementById('message').value;
+        
+        // Récupérer le numéro WhatsApp actuel
+        const contactData = await fetchContactData();
+        const whatsappNumber = (contactData.phone_whatsapp || contactData.phone_main).replace(/\s/g, '');
+        
+        // Construction du message pour WhatsApp
+        let whatsappMessage = `Bonjour TUOMET Global Service,%0A%0A`;
+        whatsappMessage += `Je suis intéressé par vos services de SOUDURE.%0A%0A`;
+        whatsappMessage += `*Nom:* ${name}%0A`;
+        whatsappMessage += `*Téléphone:* ${phone}%0A`;
+        if (email) {
+            whatsappMessage += `*Email:* ${email}%0A`;
+        }
+        whatsappMessage += `*Type de projet:* ${project}%0A`;
+        whatsappMessage += `*Description du projet:* ${message}%0A%0A`;
+        whatsappMessage += `Merci de me recontacter pour discuter de mon projet de soudure.`;
+        
+        // Redirection vers WhatsApp
+        window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+        
+        // Réinitialisation du formulaire
+        this.reset();
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
+    });
+
+    // Initialisation au chargement de la page
+document.addEventListener('DOMContentLoaded', async function() {
+    const contactData = await fetchContactData();
+    updateUI(contactData);
+    setupWhatsAppFallback();
+});
+</script>
+</body>
+</html>
